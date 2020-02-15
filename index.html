@@ -1,30 +1,36 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Calculator</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='index.css'>
 </head>
+
 <body>
     <div class="mid">
         <div class="calculator">
             <div class="header">
                 <span>Calculator</span>
+                <label class="themeToggleBtn">
+                    <input type="checkbox" id="themeToggle" onchange="themeToggle(event)" >
+                    <span class="checksign"></span>
+                </label>
             </div>
             <div class="result">
-                <input type="text" id="resultField" onkeypress="return onlyDigits(event)" placeholder="0"/>
+                <input type="text" id="resultField" onkeypress="return onlyDigits(event)" placeholder="0" />
             </div>
             <div class="keypad">
-                <div class="button clearBtn">
+                <div class="button color1 clearBtn">
                     <span>AC</span>
                 </div>
-                <div class="button signBtn negativeBtn">
+                <div class="button signBtn color1 negativeBtn">
                     <span>+/-</span>
                 </div>
-                <div class="button modBtn">
+                <div class="button color1 modBtn">
                     <span>mod</span>
                 </div>
-                <div class="button signBtn divideBtn">
+                <div class="button signBtn color1 divideBtn">
                     <span>/</span>
                 </div>
                 <div class="button sevenBtn">
@@ -36,7 +42,7 @@
                 <div class="button nineBtn">
                     <span>9</span>
                 </div>
-                <div class="button signBtn multiplyBtn">
+                <div class="button signBtn color1 multiplyBtn">
                     <span>+</span>
                 </div>
                 <div class="button fourBtn">
@@ -48,7 +54,7 @@
                 <div class="button sixBtn">
                     <span>6</span>
                 </div>
-                <div class="button signBtn minusBtn">
+                <div class="button signBtn color1 minusBtn">
                     <span>-</span>
                 </div>
                 <div class="button oneBtn">
@@ -60,7 +66,7 @@
                 <div class="button threeBtn">
                     <span>3</span>
                 </div>
-                <div class="button signBtn addBtn">
+                <div class="button signBtn color1 addBtn">
                     <span>+</span>
                 </div>
                 <div class="button zeroBtn">
@@ -69,18 +75,26 @@
                 <div class="button signBtn dotBtn">
                     <span>.</span>
                 </div>
-                <div class="button signBtn equalBtn">
+                <div class="button signBtn color1 equalBtn">
                     <span>=</span>
                 </div>
-                <div class="button moreBtn">
+                <div class="button moreBtn toggleBtn">
                     <span>More Options</span>
                 </div>
-                <div class="exKeypad">
-                    <div class="button raiseToBtn">
-                        <span>x<sup>y</sup></span>
+                <div class="exKeypad closed">
+                    <div class="button closeBtn toggleBtn">
+                        <div>
+                            <span>&times;</span>
+                        </div>
                     </div>
-                    <div class="button rootBtn">
-                        <span>SR</span>
+                    <div class="button squareBtn">
+                        <span>x<sup>2</sup></span>
+                    </div>
+                    <div class="button cubeBtn">
+                        <span>x<sup>3</sup></span>
+                    </div>
+                    <div class="button signBtn rootBtn">
+                        <span>&radic;</span>
                     </div>
                     <div class="button oneByBtn">
                         <span>1/x</span>
@@ -91,4 +105,5 @@
     </div>
     <script type="text/javascript" src="index.js"></script>
 </body>
+
 </html>

@@ -1,3 +1,15 @@
+:root{
+    
+    --keyPadBC1: #1f2125;
+    --keyPadC1: #c16c51;
+    --inputBC: #2d3134;
+    --inputC: #e4e6ea;
+    --externalBC: #c16c51;
+    --externalC: #000000;
+    --themeBC: #697df8;
+    --themeC: #e4e6ea;
+}
+
 body{
     margin: 0;
     padding: 0;
@@ -13,18 +25,18 @@ body{
 }
 
 .calculator{
-    height: 450px;
-    width: 300px;
+    height: 500px;
+    width: 400px;
     min-width: 300px;
     display: flex;
     flex-direction: column;
-    background-color: green;
+    background-color: var(--themeBC);
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
 }
 
 .calculator .header{
-    height: 10%;
+    height: 12%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -33,12 +45,38 @@ body{
     font-size: 1.5rem;
     font-weight: 500;
     text-transform: uppercase;
-    background-color: black;
-    color: white;
+    background-color: var(--themeBC);
+    color: var(--themeC);
+    position: relative;
+}
+
+.themeToggleBtn {
+    display: block;
+    position: absolute;
+    top: 15px;
+    left: 90%;
+}
+  
+.themeToggleBtn input {
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
+}
+
+.checksign {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 30px;
+    width: 30px;
+    border-radius: 15px;
+    cursor: pointer;
+    background-color: var(--externalBC);
 }
 
 .calculator .result{
-    height: 20%;
+    height: 23%;
     width: 100%;;
 }
 
@@ -46,10 +84,10 @@ body{
     height: 100%;
     width: 100%;
     border: none;
-    padding-top: 25px;
+    padding-top: 8%;
     text-align: right;
-    background-color: white;
-    color: black;
+    background-color: var(--inputBC);
+    color: var(--inputC);
     font-size: 2.5rem;
     font-weight: 600;
 }
@@ -60,7 +98,7 @@ body{
 }
 
 .calculator .keypad{
-    height: 70%;
+    height: 65%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -68,23 +106,42 @@ body{
 }
 
 .calculator .keypad .button{
-    width: 74px;
+    width: calc(25% - 1px);    
+    height: calc(25% - 1px);
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 500;
-    background-color: gray;
-    color: black;
+    background-color: var(--keyPadBC1);
+    color: var(--keyPadC1);
     border: 0.5px solid black;
     transition: all 0.2s linear;
 }
 
 .calculator .keypad .button:hover{
-    background-color: #FF5722;
-    color: white;
+    background-color: var(--externalBC);
+    color: var(--externalC);
     font-weight: 700;
     cursor: pointer;
+}
+
+.calculator .keypad .color1{
+    background-color: var(--themeBC);
+    color: var(--themeC);
+}
+
+.calculator .keypad .signBtn{
+    font-weight: bolder;
+}
+
+.calculator .keypad .modBtn span{
+    transform: rotate(-45deg);
+    font-size: 1.3rem;
+}
+
+.calculator .keypad .multiplyBtn span{
+    transform: rotate(45deg);
 }
 
 .calculator .keypad .zeroBtn{
@@ -95,31 +152,64 @@ body{
     position: absolute;
     top: 0;
     left: 100%;
-    width: 20px;
-    height: 100%;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
+    width: 35px;
+    height: 125%;
+    background-color: var(--keyPadBC1);
+    color: var(--keyPadC1);
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    transition: all 0.3s ease-in-out;
 }
 
 .calculator .keypad .moreBtn span{
     transform: rotate(-90deg);
     white-space: nowrap;
-    font-size: 1rem;
+    font-size: 1.2rem;
+    font-weight: 500;
 }
 
-.exKeypad{
-    display: none;
+.calculator .keypad .exKeypad{
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 100%;
+    height: 125%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    transition: all 0.3s ease-in-out;
 }
 
-.modBtn span{
-    transform: rotate(-45deg);
-    font-size: 1.3rem;
+.calculator .keypad .closed{
+    width: 0;
+    overflow: hidden;
 }
 
-.multiplyBtn span{
-    transform: rotate(45deg);
+.calculator .keypad .exKeypad .closeBtn{
+    background-color: darkred;
 }
 
-.calculator .keypad .signBtn{
-    font-weight: bolder;
+.calculator .keypad .exKeypad .closeBtn div{
+    width: 45%;
+    height: 55%;
+    border: 3px solid white;
+    border-radius: 50%;
+}
+
+.calculator .keypad .exKeypad .closeBtn span{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.3rem;
+    font-weight: 900;
+    color: white;
+}
+
+.calculator .keypad .exKeypad .closeBtn:hover div{
+    border: 3px solid red;
+}
+
+.calculator .keypad .exKeypad .closeBtn:hover span{
+    color: red;
 }
